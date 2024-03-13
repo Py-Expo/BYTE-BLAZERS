@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url("https://i.pinimg.com/originals/88/15/63/881563d6444b370fa4ceea0c3183bb4c.gif");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  input[type="text"], input[type="password"], select {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  input[type="text"]:focus, input[type="password"]:focus, select:focus {
+    outline: none;
+    border-color: #a330c0;
+  }
+  button {
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    background-color: #a330c0;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #8c228b;
+  }
+  p {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+  }
+  p a {
+    color: #a330c0;
+    text-decoration: none;
+  }
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Sign Up</h2>
+  <form action="/signup" method="POST" onsubmit="return validatePassword()">
+    <div class="input-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required>
+    </div>
+    <div class="input-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      <span id="passwordError" class="error-message"></span>
+    </div>
+    <div class="input-group">
+      <label for="role">Role:</label>
+      <select id="role" name="role" required>
+        <option value="student">Student</option>
+        <option value="educator">Educator</option>
+        <option value="administrator">Administrator</option>
+      </select>
+    </div>
+    <button type="submit">Sign Up</button>
+  </form>
+  <p>Already have an account? <a href="/login">Login</a></p>
+</div>
+
+<script>
+function validatePassword() {
+  var password = document.getElementById('password').value;
+  var passwordError = document.getElementById('passwordError');
+  if (password.length < 8) {
+    passwordError.innerText = "Password must be at least 8 characters long";
+    return false;
+  }
+  if (!/[A-Z]/.test(password)) {
+    passwordError.innerText = "Password must contain at least one uppercase letter";
+    return false;
+  }
+  return true;
+}
+</script>
+
+</body>
+</html>

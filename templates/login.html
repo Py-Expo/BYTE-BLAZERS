@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url("https://i.pinimg.com/originals/88/15/63/881563d6444b370fa4ceea0c3183bb4c.gif");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    width: 40%;
+    background-color: rgba(190, 175, 175, 0.9);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  input[type="text"], input[type="password"], select {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  input[type="text"]:focus, input[type="password"]:focus, select:focus {
+    outline: none;
+    border-color: #a330c0;
+  }
+  button {
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    background-color: #a330c0;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #8c228b;
+  }
+  p {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+  }
+  p a {
+    color: #a330c0;
+    text-decoration: none;
+  }
+  .popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(63, 255, 236, 0.8);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    animation: slideIn 0.5s ease-in-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Login</h2>
+  <form action="/login" method="POST">
+    <div class="input-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required>
+    </div>
+    <div class="input-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    </div>
+    <button type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a href="/signup">Sign up</a></p>
+</div>
+</body>
+</html>
+
+  </div>
+  <div id="popup" class="popup"></div>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var popup = document.getElementById('popup');
+          popup.innerText = "{{ message }}";
+          popup.style.display = 'block';
+          setTimeout(function() {
+            popup.style.display = 'none';
+          }, 5000); 
+          popup.classList.add('animate__animated', 'animate__slideIn');
+        });
+      </script>
+    {% endfor %}
+  {% endif %}
+  {% endwith %}
+</div>
+</body>
+</html>

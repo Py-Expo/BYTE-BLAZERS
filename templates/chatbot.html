@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Bot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <style>
+    body body {
+      background-color: #b459d8;
+      background-size: cover;
+      background-repeat: repeat-y;
+      font-family: cera-round-pro, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    }
+
+    .chat.message:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 30%;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5)); /* Adjust gradient colors as needed */
+      pointer-events: none;
+    }
+
+    #voiceButton {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    #voiceButton img {
+      width: 30px;
+      height: auto;
+    }
+    
+    #voiceButton.listening {
+      transform: scale(1.1);
+    }
+    
+    #voiceButton.listening img {
+      filter: brightness(1.2);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="chatbox-wrapper">
+    <div class="message-box">
+      {% for message in messages %}
+        <div class="chat {{ 'message' if message.sender == 'user' else 'response' }}">
+          <img class="logo" src="{{ url_for('static', filename='user.jpg') }}" id="userImage" {% if message.sender == 'bot' %}style="display: none;"{% endif %}>
+          <img class="logo" src="{{ url_for('static', filename='chatbot.jpg') }}" id="botImage" {% if message.sender == 'user' %}style="display: none;"{% endif %}>
+          <span>{{ message.content }}</span>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="messagebar">
+      <div class="bar-wrapper">
+        <input type="text" id="inputText" placeholder="Enter your message...">
+        <button onclick="sendMessage()">
+          <img src="/static/email.png" alt="Send">
+        </button>
+        <button id="voiceButton" onclick="toggleListening()">
+          <img src="/static/voice.png" alt="Voice">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.continuous = false;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onresult = function(event) {
+      const transcript = event.results[0][0].transcript;
+      document.getElementById("inputText").value = transcript;
+      toggleListening(); // Toggle off listening state
+    };
+
+    function toggleListening() {
+      const voiceButton = document.getElementById("voiceButton");
+      const voiceImage = document.getElementById("voiceImage");
+      voiceButton.classList.toggle("listening");
+      if (voiceButton.classList.contains("listening")) {
+        recognition.start();
+        voiceImage.src = "listening.png";
+      } else {
+        recognition.stop();
+        voiceImage.src = "voice.png";
+      }
+    }
+
+    document.getElementById("inputText").addEventListener("keypress", function(e) {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        const message = this.value.trim();
+        if (message) {
+          displayMessage(message, 'user');
+          this.value = ''; // Clear input field
+          // Here you can also add the fetch call to send the message to your backend or API
+        }
+      }
+    });
+
+    function displayMessage(message, sender) {
+      const messageBox = document.getElementById("messageBox");
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add("chat", sender);
+      messageDiv.innerHTML = `<span>${message}</span>`;
+      messageBox.appendChild(messageDiv);
+      messageBox.scrollTop = messageBox.scrollHeight; // Scroll to the bottom
+    }
+
+
+    function sendMessage() {
+      const messageBar = document.getElementById("inputText");
+      const message = messageBar.value.trim();
+      if (message !== "") {
+          const userMessage = createUserMessage(message);
+          appendMessage(userMessage, 'user');
+  
+          messageBar.value = '';
+            fetch('/chatbot', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ message: message })
+          })
+          .then(response => response.json())
+          .then(data => {
+              generateBotResponse(data.chat_message);
+          })
+          .catch(error => {
+              console.error('Error:', error);
+          });
+      }
+    }
+  
+    function generateBotResponse(response) {
+      const botMessage = createBotMessage(response);
+      appendMessage(botMessage, 'bot');
+    }
+
+    function createUserMessage(message) {
+        return `
+            <div class="chat user">
+                <img src="static/user.jpg" id="userImage"> 
+                <span>${message}</span>
+            </div>
+        `;
+    }
+
+    function createBotMessage(message) {
+        return `
+            <div class="chat response">
+                <img src="static/chatbot.jpg" id="botImage">
+                <span>${message}</span>
+            </div>
+        `;
+    }
+
+    function appendMessage(message, sender) {
+        const messageBox = document.querySelector(".message-box");
+        messageBox.insertAdjacentHTML("beforeend", message);
+        messageBox.scrollTop = messageBox.scrollHeight;
+    }
+
+    function enterToSend(event) {
+        if (event.key === "Enter") {
+            sendMessage();
+        }
+    }
+
+    document.getElementById("inputText").addEventListener("keyup", enterToSend);
+
+    const messageBox = document.querySelector(".message-box");
+    messageBox.scrollTop = messageBox.scrollHeight;
+
+    function toggleListening() {
+      const voiceButton = document.getElementById("voiceButton");
+      
+      voiceButton.classList.toggle("listening");
+      
+      // Toggle between voice.png and listening.png
+      if (voiceButton.classList.contains("listening")) {
+        voiceButton.getElementsByTagName("img")[0].src = "/static/listening.png";
+        recognition.start();
+      } else {
+        voiceButton.getElementsByTagName("img")[0].src = "/static/voice.png";
+        recognition.stop();
+      }
+    }
+
+    recognition.onresult = function(event) {
+      const transcript = event.results[0][0].transcript;
+      document.getElementById("inputText").value = transcript;
+      sendMessage();
+    }
+    
+  </script>
+</body>
+</html>

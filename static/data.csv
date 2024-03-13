@@ -1,0 +1,69 @@
+# About Section
+"Section","Information"
+"About Us","KGiSL Institute of Technology was started in the Year 2008 by Dr. G. Bakthavathsalam, MS., FICS., CCP.,FAMS., FMMC., Founder-Chairman of KG Hospital."
+"Objective","The main objective of the KGiSL Institute of Technology is to provide industry-embedded education and to mold the students for leadership in industry, government, and educational institutions; to advance the knowledge base of the engineering professions; and to influence the future directions of engineering education and practice."
+"Quality Policy","We, at KGiSL Institute of Technology, are committed to pursue global standards of excellence in all our endeavors including teaching, research, consultancy, entrepreneurship, and continuing education, with a commitment to periodic evaluation and continual improvement."
+"Vision","To be recognized as a Renowned Technical Institution for transforming Young Minds into Competent Professionals to serve the Industry and Society."
+"Mission","To practice Outcome Based Teaching Learning Methodology, to upskill Faculty Members’ Expertise in diverse domains, to build State-of-the-Art Infrastructure, to enrich Innovative Research Activities, and to ensure Students’ Participation in Co-curricular and Extra-curricular Activities."
+"Administration","Dr. Ashok Bakthavathsalam is the Managing Trustee, Dr.P.Shankar serves as the Director - Academics & Administration, Dr.N.Rajkumar is the Secretary, and Dr.S.Suresh Kumar holds the position of Principal at KGiSL Institute of Technology."
+
+# Departments Section
+"Section","Information"
+"Information Technology","The IT department, led by Dr.N.SANKAR RAM, focuses on a broad range of career options in software development, computer programming, business analysis, data modeling, systems integration, and network management."
+"Computer Science and Engineering","The CSE department offers programs like B.E in CSE, M.E in CSE, and Ph.D in CSE, under the leadership of Dr. Thenmozhi T. The department is dedicated to the theory, development, and application of software and systems."
+"Computer Science and Business Systems","Headed by Dr.P.Rajkumar, the CSBS department merges technology with strategic business insights, preparing students for the multidisciplinary demands of the digital era."
+"Artificial Intelligence & Data Science","The AI&DS department, offering a B.Tech in AI and Data Science and led by Dr. S. Kalpana, is dedicated to exploring and advancing the frontiers of artificial intelligence and data science."
+"Electronics and Communication Engineering","The Department of Electronics and Communication Engineering was established in 2008 with a vision to develop competent professionals to meet the global challenges in modern engineering society. It offers a 4-year B.E. Electronics and Communication Engineering program with a sanctioned intake of 120 students, M.E Applied Electronics program with a sanctioned intake of 9 students, and Ph.D program. The Laboratories are equipped with the latest technology in fields such as Electronic Devices and Circuits, Digital Electronics, Linear Integrated Circuits, Microprocessors and Microcontrollers, Digital Signal Processing, Communication System, VLSI, Embedded Systems, Optical & Microwave, offering opportunities on a wide range of hardware and advanced software packages. The Department has a committed team of faculty members with expertise in areas such as Applied Electronics, Communication systems, VLSI, Embedded Systems, Signal processing, and Networking. It encompasses professional technical associations such as IEEE, IETE, and ISTE chapters, providing students with platforms to learn professional and soft skills."
+
+# Department Heads Section
+"Section","Information"
+"Head of Department - ECE","Dr.B.Shoba, M.Tech.,M.B.A.,Ph.D., M.I.S.T.E, ASSOCIATE PROFESSOR & HEAD OF THE DEPARTMENT- ECE. Dr.B.Shoba completed her B.Tech degree in Electronics and Communication Engineering from Pondicherry Engineering College, Pondicherry Central University in 2002 and M.Tech degree with a gold medal in Electronics and Communication Engineering from Pondicherry Central University in 2008. She also completed an MBA in Operations Management from IGNOU, New Delhi. She earned her doctorate in Electronics and Communication Engineering from Pondicherry Central University in April 2019. With 18 years of experience in teaching and administration, she has published 40 research papers in various International and national Journals and Conferences. She is the recipient of 5 Best paper awards in International and national conferences, and she received the “Best working women award” from CII and IWN in 2014, along with the “Best Leadership Award” in 2017. Dr.B.Shoba has organized several workshops, seminars, and national level symposiums. She has acted as a reviewer for international conferences and has given guest lectures and webinars. She is also an active life member of ISTE. Her areas of interest include wireless communication, signal processing, and biomedical applications."
+"Head of Department - Mechanical Engineering","Dr.T.Venugopal M.E.,Ph.D., ASSOCIATE PROFESSOR & HEAD. Dr.T.Venugopal graduated in Mechanical Engineering from Bharathiar University, Coimbatore in 2002 and obtained his Master’s Degree in CAD/CAM from Anna University Chennai in 2004. He earned his Doctoral degree in Mechanical Engineering from Anna University, Chennai in 2019. With 19 years of academic and research experience, he has published 15 research articles in various peer-reviewed international journals and conferences at the national and international levels. Dr.T.Venugopal has also published two patents in the area of Natural Fibre Products and serves as a reviewer for prestigious Springer and Elsevier Journals. He received a Seminar Grant OF Rs.20,000/- from CSIR, New Delhi and a Project Grant of Rs.7500 from TNSCST (SPS), Chennai. He is a life member of ISTE and ISNT."
+
+# Programs Section
+"Section","Program","Duration","Intake","Semesters"
+"Undergraduate Programs","B.E. Computer Science and Engineering","4 Years",120,8
+"Undergraduate Programs","B.E. Electronics and Communication Engineering","4 Years",120,8
+"Undergraduate Programs","B.E. Mechanical Engineering","4 Years",60,8
+"Undergraduate Programs","B.Tech. Artificial Intelligence and Data Science","4 Years",120,8
+"Undergraduate Programs","B.Tech. Computer Science and Business Systems","4 Years",60,8
+"Undergraduate Programs","B.Tech. Information Technology","4 Years",60,8
+"Postgraduate Programs","M.E. Applied Electronics","2 Years",9,4
+"Postgraduate Programs","M.E. Computer Science and Engineering","2 Years",9,4
+"Postgraduate Programs","Masters in Business Administration (MBA)","2 Years",60,4
+
+# Ph.D Programs
+"PhD Programs","Ph.D-Computer Science and Engineering","Varies","Varies"
+"PhD Programs","Ph.D-Electronics and Communication Engineering","Varies","Varies"
+
+# Admissions Section
+"Section","Information"
+"Admission_ContactNumber","+91-90952 44488 / +91-89399 26761 / +91-90809 27613"
+"Admission_Email","admission@kgkite.ac.in"
+"Admission_Address","KGiSL Institute of Technology, KG Information Systems Private Limited KGiSL Campus, 365, Thudiyalur Road, Saravanampatti, Coimbatore – 641035."
+"Admission_AdmissionEnquiryFormLink","Link for admission enquiry form"
+
+# Requirements Section
+"Section","Information"
+"EntryRequirements_BE_BTech_OtherCommunities","Pass in 12th standard or equivalent with an aggregate of at least 50% marks in Mathematics, Physics & Chemistry."
+"EntryRequirements_BE_BTech_BackwardClassCommunity","Pass in 12th standard or equivalent with an aggregate of at least 45% marks in Mathematics, Physics & Chemistry. The candidate should produce the Community Certificate duly signed by the Tahsildar."
+"EntryRequirements_BE_BTech_MostBackwardClassCommunity","Pass in 12th standard or equivalent with an aggregate of at least 40% marks in Mathematics, Physics & Chemistry. The candidate should produce the Community Certificate duly signed by the Tahsildar."
+"EntryRequirements_BE_BTech_SC_SCA_STCandidates","Pass in 12th standard or equivalent with an aggregate of at least 40% marks in Mathematics, Physics & Chemistry. The candidate should produce the Community Certificate duly signed by the Tahsildar."
+"EntryRequirements_BE_BTech_Note","Candidates from other states, irrespective of their community are considered as OC (Other Community)."
+"EntryRequirements_LateralEntry_DirectIIYear_OtherCommunities","Pass in 3 year Diploma examination conducted by the State Board of Technical Education of respective states in the relevant subjects with a minimum of 55% marks in any recognized bachelor’s degree in Science of minimum 3 years duration with Mathematics as a subject."
+"EntryRequirements_LateralEntry_DirectIIYear_BackwardClassCommunity","An aggregate of 50% marks in the final year diploma examination / Final year B.Sc. degree course."
+"EntryRequirements_LateralEntry_DirectIIYear_MostBackwardClassCommunity","An aggregate of 45% marks in the final year diploma examination / Final year B.Sc. degree course."
+"EntryRequirements_LateralEntry_DirectIIYear_SC_SCA_STCandidates","An aggregate of 40 % marks in Diploma Course / B.Sc. Degree course."
+"EntryRequirements_LateralEntry_DirectIIYear_BScStudents_MathematicsSubject","Eligible for admission to B.E/B.Tech degree courses through Lateral Entry."
+"EntryRequirements_MEDegreeProgramme","Passed an appropriate Under-Graduate Degree Examination of Anna University as specified under qualification for admission as per the Tamil Nadu Common Admission (TNACA) criteria."
+
+# Admission Documents Required
+"Section","DocumentsRequired"
+"AdmissionRequirements_UndergraduateAdmission_DocumentsRequired","Statement of marks of the qualifying examinations (original and 3 photos copies),Transfer Certificate – original and 3 photo copies,Conduct Certificate – original and 3 attested photo copies,Community Certificate – original and 3 attested photo copies,Migration Certificate – original and 3 attested photo copies for the candidates passed other than HSC of Tamil Nadu,Diploma Mark statements – original and 3 attested photo copies (for Lateral Entry Only),SSLC Mark Statement – original and 3 attested photo copies (for Lateral Entry Only),Passport size Photograph – 6 Nos"
+"AdmissionRequirements_PostgraduateAdmission_DocumentsRequired","Transfer Certificate – original and 3 photo copies,Provisional / Degree Certificate – original and 3 attested photo copies,UG Mark Statements – original and 3 attested photo copies,TANCET / CET score card – original and 3 attested photo copies,Conduct Certificate – original and 3 attested photo copies,Community Certificate – original and 3 attested photo copies,Migration Certificate – original and 3 attested photo copies for the candidates – passed HSC / +2 of other than Tamil Nadu State,Passport size Photograph – 6 Nos"
+
+# Certificate Verification
+"Section","Information"
+"EquivalenceCertificate","Equivalency Certificate issued by the DOTE (Directorate of Technical Education); Chennai – 25 should be provided for the students who studied HSC (or) Equivalent in abroad and other Private Bodies of any state."
+"CertificateVerification_UndergraduateAdmission_DocumentsRequired","SSLC/ 10th Mark Statement – Original and 5 Attested Photo Copies,HSC / +2 Mark Statement – Original and 5 Attested Photo Copies,Diploma Certificate – Original and 5 Attested Photo Copies ( For Lateral Entry),Diploma All Semester Marksheet – Original and 5 Attested Photo Copies ( For Lateral Entry),Transfer Certificate – Original and 5 Attested Photo Copies,Community Certificate – Original and 5 Attested Photo Copies,Recent Passport Size Photographs – 5 Nos"
+"CertificateVerification_PostgraduateAdmission_DocumentsRequired","SSLC/ 10th Mark Statement – Original and 5 Attested Photo Copies,HSC / +2 Mark Statement – Original and 5 Attested Photo Copies,UG Degree /Provisional Certificate – Original and 5 Attested Photo Copies,Consolidated Grade Sheet/ All semester Grade Sheet – Original and 5 Attested Photo Copies,Transfer Certificate – Original and 5 Attested Photo Copies,Community Certificate – Original and 5 Attested Photo Copies,Recent Passport Size Photographs – 5 Nos"

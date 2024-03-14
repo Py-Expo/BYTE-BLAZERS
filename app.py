@@ -101,10 +101,12 @@ def chatbot():
 
 def call_chatgpt_api(message):
     try:
-        match_threshold = 0.73
+        match_threshold = 0.70
         
         responses = {
     "kgisl institute of technology": "KGiSL Institute of Technology (KiTE) is a private engineering college started in 2008 by G. Bakthavathsalam, Founder-Chairman of KG Hospital. It is located at Saravanampatti in Coimbatore, Tamil Nadu, India. The college is affiliated to Anna University. It offers various undergraduate and postgraduate courses leading to the Degree of Bachelor of Engineering (B.E).",
+    "details about kgisl institute of technology": "KGiSL Institute of Technology (KiTE) is a private engineering college started in 2008 by G. Bakthavathsalam, Founder-Chairman of KG Hospital. It is located at Saravanampatti in Coimbatore, Tamil Nadu, India. The college is affiliated to Anna University. It offers various undergraduate and postgraduate courses leading to the Degree of Bachelor of Engineering (B.E).",
+
     "who is the founder of kgisl institute of technology credentials": "The founder of KGiSL Institute of Technology is Dr. G. Bakthavathsalam, who holds credentials including MS, FICS, FCCP, FAMS, FMMC, and is also the Founder-Chairman of KG Hospital.",
     "where is kite located?": "KiTE Address: 365, Kgisl Campus, near Thudiyalur Road, Saravanampatti, Coimbatore, Tamil Nadu 641035",
     "main objective of kgisl institute of technology?": "The main objective of KGiSL Institute of Technology is to provide industry-embedded education, mold students for leadership in various sectors, and influence the future of engineering education and practice.",
@@ -114,19 +116,31 @@ def call_chatgpt_api(message):
     "key administrators at kgisl institute of technology?": "The key administrators at KGiSL Institute of Technology include Dr. Ashok Bakthavathsalam as the Managing Trustee, Dr. P. Shankar as the Director of Academics & Administration, Dr. N. Rajkumar as the Secretary, and Dr. S. Suresh Kumar as the Principal.",
     "Who is the priciple of kite":"Dr. S. Suresh Kumar – Accomplished, Professor, Ph.D., C. Eng., MIEEE., MIET., MIETE, MIE., MIAENG, MSESI, MBMESI, MAEMP, MSEEM, MAES., MISCA., MACCS., MSSI., MCSI., MISTE., with over 31 years of Experience in Education, Research and Development in a range of areas such as Power Electronics & Drives, Power Quality, Renewable Energy (RE) Technologies, Signal & Image Processing, Embedded Systems and IoT.",
     "Who is the priciple of kgisl institute of technology":"Dr. S. Suresh Kumar is the priciple of kgisl institute of technology, Who has – Accomplished, Professor, Ph.D., C. Eng., MIEEE., MIET., MIETE, MIE., MIAENG, MSESI, MBMESI, MAEMP, MSEEM, MAES., MISCA., MACCS., MSSI., MCSI., MISTE., with over 31 years of Experience in Education, Research and Development in a range of areas such as Power Electronics & Drives, Power Quality, Renewable Energy (RE) Technologies, Signal & Image Processing, Embedded Systems and IoT.",
-    "Director - Academics & Administration":"Dr P.Shankar is presently Director (Academics & Administration) at KGISL Institute of Technology, Saravanampatti, Coimbatore. He was formerly the Founding Principal at Amrita School of Engineering, Chennai campus from 2019 to 2022. He was also associated with Saveetha University as the Principal of School of Engineering from 2010 to 2016.",
+    "Director of Academics & Administration":"Dr P.Shankar is presently Director (Academics & Administration) at KGISL Institute of Technology, Saravanampatti, Coimbatore. He was formerly the Founding Principal at Amrita School of Engineering, Chennai campus from 2019 to 2022. He was also associated with Saveetha University as the Principal of School of Engineering from 2010 to 2016.",
     "Director of kgisl institute of technology":"Dr P.Shankar is presently Director (Academics & Administration) at KGISL Institute of Technology, Saravanampatti, Coimbatore. He was formerly the Founding Principal at Amrita School of Engineering, Chennai campus from 2019 to 2022. He was also associated with Saveetha University as the Principal of School of Engineering from 2010 to 2016.",
     # Programs Section
-    "Departments offered by kgisl institute of technology":"We offer various undergraduate programs including B.E. Computer Science and Engineering, B.E. Electronics and Communication Engineering, B.E. Mechanical Engineering, B.Tech. Artificial Intelligence and Data Science, B.Tech. Computer Science and Business Systems, and B.Tech. Information Technology.,Postgraduate Programs: Our postgraduate programs include M.E. Applied Electronics, M.E. Computer Science and Engineering, and Masters in Business Administration (MBA). We offer Ph.D programs in Computer Science and Engineering, and Electronics and Communication Engineering"
-    "Undergraduate Programs": "We offer various undergraduate programs including B.E. Computer Science and Engineering, B.E. Electronics and Communication Engineering, B.E. Mechanical Engineering, B.Tech. Artificial Intelligence and Data Science, B.Tech. Computer Science and Business Systems, and B.Tech. Information Technology.",
+    "departments offered by kgisl institute of technology":"We offer various undergraduate programs including B.E. Computer Science and Engineering, B.E. Electronics and Communication Engineering, B.E. Mechanical Engineering, B.Tech. Artificial Intelligence and Data Science, B.Tech. Computer Science and Business Systems, and B.Tech. Information Technology. Our postgraduate programs include M.E. Applied Electronics, M.E. Computer Science and Engineering, and Masters in Business Administration (MBA)",
+
+    "Undergraduate Programs" : "We offer various undergraduate programs including B.E. Computer Science and Engineering, B.E. Electronics and Communication Engineering, B.E. Mechanical Engineering, B.Tech. Artificial Intelligence and Data Science, B.Tech. Computer Science and Business Systems, and B.Tech Information Technology. ",
     "Postgraduate Programs": "Our postgraduate programs include M.E. Applied Electronics, M.E. Computer Science and Engineering, and Masters in Business Administration (MBA).",
+    "Courses offered by kgisl institute of technology":"We offer various undergraduate programs including B.E. Computer Science and Engineering, B.E. Electronics and Communication Engineering, B.E. Mechanical Engineering, B.Tech. Artificial Intelligence and Data Science, B.Tech. Computer Science and Business Systems, and B.Tech. Information Technology. Our postgraduate programs include M.E. Applied Electronics, M.E. Computer Science and Engineering, and Masters in Business Administration (MBA)",
+    "Undergraduate courses offered by kgisl institute of technology": "We offer various undergraduate programs including B.E. Computer Science and Engineering, B.E. Electronics and Communication Engineering, B.E. Mechanical Engineering, B.Tech. Artificial Intelligence and Data Science, B.Tech. Computer Science and Business Systems, and B.Tech. Information Technology.",
+    "Postgraduate courses offered by kgisl institute of technology": "Our postgraduate programs include M.E. Applied Electronics, M.E. Computer Science and Engineering, and Masters in Business Administration (MBA).",
+    "Ug courses offered by kgisl institute of technology": "We offer various undergraduate programs including B.E. Computer Science and Engineering, B.E. Electronics and Communication Engineering, B.E. Mechanical Engineering, B.Tech. Artificial Intelligence and Data Science, B.Tech. Computer Science and Business Systems, and B.Tech. Information Technology.",
+    "Pg courses offered by kgisl institute of technology": "Our postgraduate programs include M.E. Applied Electronics, M.E. Computer Science and Engineering, and Masters in Business Administration (MBA).",
+    "Undergraduate programs offered by kgisl institute of technology": "We offer various undergraduate programs including B.E. Computer Science and Engineering, B.E. Electronics and Communication Engineering, B.E. Mechanical Engineering, B.Tech. Artificial Intelligence and Data Science, B.Tech. Computer Science and Business Systems, and B.Tech. Information Technology.",
+    "Postgraduate programs offered by kgisl institute of technology": "Our postgraduate programs include M.E. Applied Electronics, M.E. Computer Science and Engineering, and Masters in Business Administration (MBA).",
+    "Ug programs offered by kgisl institute of technology": "We offer various undergraduate programs including B.E. Computer Science and Engineering, B.E. Electronics and Communication Engineering, B.E. Mechanical Engineering, B.Tech. Artificial Intelligence and Data Science, B.Tech. Computer Science and Business Systems, and B.Tech. Information Technology.",
+    "Pg programs offered by kgisl institute of technology": "Our postgraduate programs include M.E. Applied Electronics, M.E. Computer Science and Engineering, and Masters in Business Administration (MBA).",
+
     # Ph.D Programs
-    "PhD Programs": "We offer Ph.D programs in Computer Science and Engineering, and Electronics and Communication Engineering.",
+    "PhD Programs offered by Kite": "We offer Ph.D programs in Computer Science and Engineering, and Electronics and Communication Engineering.",
+
     # Admissions Section
-    "Admission_ContactNumber": "For admissions, you can contact us at +91-90952 44488 / +91-89399 26761 / +91-90809 27613.",
-    "Admission_Email": "For any admission-related queries, you can email us at admission@kgkite.ac.in.",
-    "Admission_Address": "Our address is KGiSL Institute of Technology, KG Information Systems Private Limited KGiSL Campus, 365, Thudiyalur Road, Saravanampatti, Coimbatore – 641035.",
-    "Admission_AdmissionEnquiryFormLink": "You can fill out the admission enquiry form by visiting the link: [Admission Enquiry Form](Link for admission enquiry form).",
+    "Admission Contact Number": "For admissions, you can contact us at +91-90952 44488 / +91-89399 26761 / +91-90809 27613.",
+    "Admission Email": "For any admission-related queries, you can email us at admission@kgkite.ac.in.",
+    "Admission Address": "Our address is KGiSL Institute of Technology, KG Information Systems Private Limited KGiSL Campus, 365, Thudiyalur Road, Saravanampatti, Coimbatore – 641035.",
+    "Admission AdmissionEnquiryFormLink": "You can fill out the admission enquiry form by visiting the link: [Admission Enquiry Form](Link for admission enquiry form).",
     # Requirements Section
     "EntryRequirements_BE_BTech_OtherCommunities": "To qualify for admission, candidates from other communities must pass the 12th standard or equivalent with an aggregate of at least 50% marks in Mathematics, Physics & Chemistry.",
     "EntryRequirements_BE_BTech_BackwardClassCommunity": "Candidates from backward class communities must pass the 12th standard or equivalent with an aggregate of at least 45% marks in Mathematics, Physics & Chemistry. The candidate should produce the Community Certificate duly signed by the Tahsildar.",
@@ -291,7 +305,7 @@ def call_chatgpt_api(message):
                 matched_question = question
         
         if max_similarity >= match_threshold:
-            time.sleep(1.1) 
+            time.sleep(1.2) 
             return responses[matched_question]
         else:
             messages = [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": message}]

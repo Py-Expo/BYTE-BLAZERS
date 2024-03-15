@@ -307,7 +307,8 @@ def call_chatgpt_api(message):
     "people in Cyber Security Lab ":"Technical Manager – Mr.Joel Anandraj.E, AP/ITProject Manager - Dr.S.Vidhya, Vice Principal, KG College of Arts and Science.Industry Mentors/PoP – Mr. Raghav Ellur, Principal Security Group Manager at MicrosoftFaculty Mentor –Ms.Shirley Josephine Mary AP/IT,Ms. Krishna Kala AP/CSBS,Mr.Anbarasan R AP/IT,Ms.Nithya AP/CSE,Ms.Aruna AP/CSE",
     "vision of Cyber Security Lab":"To attain the foremost position in the Cyber Security domain, ensuring a secure digital future through excellence in education, research, and collaborative initiatives.",
     "Innovation Labs at kgisl institute of technology":"KGiSL Institute Of Technology  has 4 innovation labs 1. AI&ES Lab (Artificial intelligence and Embedded systems ) 2. Cloud and DevOps Lab  3. Web 3.0 4. Cyber Security Lab ",
-    
+    "Innovation Labs at kite":"KGiSL Institute Of Technology  has 4 innovation labs 1. AI&ES Lab (Artificial intelligence and Embedded systems ) 2. Cloud and DevOps Lab  3. Web 3.0 4. Cyber Security Lab ",
+
     
     
     

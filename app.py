@@ -235,9 +235,7 @@ def call_chatgpt_api(message):
     "Guidance and Support kgisl institute of technology": "Experienced hostel wardens offer guidance and support to students, creating a nurturing environment where students can thrive.",
 
     "Transport details at kgisl institute of technology": "At KGiSL Institute of Technology, we ensure seamless transportation for students from various parts of Coimbatore and beyond, prioritizing safety and punctuality. Here are the details of our college bus routes  Transport
-    We ferry students from all parts of Coimbatore and beyond. We are on time, every time. We facilitate connectivity to student homes and drive them safe.
-
-COLLEGE BUS ROUTE AND FEE DETAILS
+    We ferry students from all parts of Coimbatore and beyond. We are on time, every time. We facilitate connectivity to student homes and drive them safe.COLLEGE BUS ROUTE AND FEE DETAILS
 Route No : 1 - Sirumugai - Reyon Nagar to KGiSL Campus
 Route No : 2 - CTC METTUPALAYAM to KGiSL Campus
 Route No : 3 - Batharakaliamman Temple to KGiSL Campus

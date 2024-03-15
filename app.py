@@ -1,8 +1,8 @@
 import os
 from platform import processor
-from flask import Flask, request, jsonify, render_template, redirect, url_for, session
+from flask import Flask,request,jsonify,render_template,redirect,url_for,session
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash,check_password_hash
 import openai
 import secrets
 import logging
@@ -168,6 +168,8 @@ def call_chatgpt_api(message):
     "Research Ethics Committee (REC)": "The Research Ethics Committee (REC) is responsible for ensuring ethical conduct in research activities undertaken at the institution. The committee members are as follows: \n1. Dr. S. Sureshkumar - Professor, ECE (Principal) \n2. Dr. N. Rajkumar - Professor, CSE (Convenor) \n3. Dr. N. Kathiravan - Professor, Mech (Member) \n4. Dr. P. Rajkumar - Professor, CSE (Member) \n5. Dr. S. Kalpana - Associate Professor, CSE (Member) \n6. Dr. T. Venugopal - Associate Professor, Mech (Member)",
     "Head of the department of  Master of Business Administration of kgisl institute of technology":"Dr. K.G. Senthilkumar, MBA.M.Phill.,Ph.D",
 
+    "Head of Department of CSE at kgisl Institute of Technology":"Dr. Thenmozhi T PROFESSOR & HEAD OF THE DEPARTMENT - CSE Dr.Thenmozhi T completed her Bachelors Degree in Computer Science and Engineering from Madurai Kamaraj University in the year 1996 and has completed her Master’s in Business Administration by 1998, specializing in Marketing and Finance from The American college , Madurai. She has her Master’s degree in Computer science Engineering from Avinashilingam University in the year 2009. She has received her Doctorate in Information and Communication Engineering, from Anna University, Chennai. She has nearly 24 years of experience in teaching and research. Her research areas include Vehicular Networks and Blockchain Technologies. She has nearly ten of her papers published in International Journals. She has been serving as Head of Department in Engineering Colleges in TamilNadu. She is a member in Professional bodies like CSI and ISTE",
+
     "HOD of Science & Humanities at kgisl Institute of Technology": "Dr. Kathiravan N, M.E., Ph.D., is a Professor & Dean of the Science & Humanities department. He received his Ph.D. in Mechanical Engineering from Bharathiar University, Coimbatore. He completed his Masters in Industrial Engineering from PSG College of Technology, Coimbatore. His research areas include Automation, TQM, and Manufacturing Process. With about 10 years of industrial and 25 years of academic experience, he has 10 international publications to his credit. Dr. Kathiravan is a subject expert in Engineering Drawing and a recognized supervisor under Anna University, Chennai. He is a member of IE, ISTE, and a certified Chartered Engineer. Additionally, he serves as a 'Special Invitee' of the Managing Committee of Indian Red Cross Society, Coimbatore District branch.",
     "HOD of ECE at kgisl Institute of Technology": "Dr.B.Shoba, M.Tech.,M.B.A.,Ph.D., M.I.S.T.E, ASSOCIATE PROFESSOR & HEAD OF THE DEPARTMENT- ECE Dr.B.Shoba completed her B.Tech degree in Electronics and Communication Engineering from Pondicherry Engineering College, Pondicherry Central University in 2002 and M.Tech degree with gold medal in Electronics and Communication Engineering from Pondicherry Central University in 2008. She has also completed MBA in Operations Management from IGNOU, New Delhi. She got her doctorate in Electronics and Communication Engineering from Pondicherry Central University in April 2019. She is having 18 years of experience in teaching and administration. She has published 40 research papers in various International and national Journals and Conferences. She is the recipient of 5 Best paper awards in International and national conferences. She received “Best working women award” from CII and IWN in 2014. She also received “Best Leadership Award” in 2017. She has organized several workshops, seminars, national level symposiums etc., She has acted as reviewer for international conferences and has given guest lectures and webinars. She is also an active life member in ISTE. Her areas of interest include wireless communication, signal processing and biomedical applications.",
     "HOD of Mechanical Engineering at kgisl Institute of Technology": "Dr. T. Venugopal M.E., Ph.D., ASSOCIATE PROFESSOR & HEAD. Dr. T. Venugopal graduated in Mechanical Engineering from Bharathiar University, Coimbatore in 2002 and obtained his Master’s Degree in CAD/CAM from Anna University Chennai in 2004. He earned his Doctoral degree in Mechanical Engineering from Anna University, Chennai in 2019. With 19 years of academic and research experience, he has published 15 research articles in various peer-reviewed international journals and conferences at the national and international levels. Dr. T. Venugopal has also published two patents in the area of Natural Fibre Products and serves as a reviewer for prestigious Springer and Elsevier Journals. He received a Seminar Grant OF Rs.20,000/- from CSIR, New Delhi and a Project Grant of Rs.7500 from TNSCST (SPS), Chennai. He is a life member of ISTE and ISNT.",
@@ -178,32 +180,32 @@ def call_chatgpt_api(message):
     "HOD of MBA at kgisl Institute of Technology": "Dr. K.G. Senthilkumar, MBA.M.Phill.,Ph.D",
     "HOD of Master of Business Administration at kgisl Institute of Technology": "Dr. K.G. Senthilkumar, MBA.M.Phill.,Ph.D",
 
-   "Skill Labs kgisl institute of technology": "The Skill Labs at KGiSL Institute of Technology encompass various cutting-edge technologies such as Augmented Reality (AR), Virtual Reality (VR), and Robotic Process Automation (RPA). These labs provide students with hands-on experience and practical training in these emerging fields, preparing them for the challenges of the future.",
-    "Learning Management System kgisl institute of technology": "KGiSL Institute of Technology utilizes Moodle, a globally recognized open-source Learning Management System (LMS), to facilitate online learning. Moodle offers a collaborative platform for both students and teachers, delivering course materials and enabling interactive learning experiences. It includes features such as discussion forums, quizzes, and assignment tracking, enhancing the overall learning journey.",
-    "Infrastructure kgisl institute of technology": "The infrastructure at KGiSL Institute of Technology is state-of-the-art, designed to provide students with a conducive learning environment. The campus spans 11 acres and includes three blocks: Admin Block, Academic Block, and Lab Block. It features smart classrooms, well-equipped laboratories, a digital library, an auditorium, a gym, a food court, yoga facilities, and a health center. Additionally, the hostel provides comfortable accommodation with Wi-Fi connectivity.",
-    "Class Room kgisl institute of technology": "KGiSL Institute of Technology boasts 42 classrooms and 3 seminar halls equipped with ICT facilities such as LCD projectors, Wi-Fi/LAN connectivity, and green boards. The seminar halls are utilized for department meetings, workshops, and club activities.",
-    "Laboratories kgisl institute of technology": "The institute's teaching-learning laboratories are fully equipped with state-of-the-art facilities, meeting the norms and standards prescribed by regulatory authorities such as AICTE and the affiliating university. The laboratories cover various disciplines and are instrumental in providing practical exposure to students.",
-    "Library kgisl institute of technology": "The central library at KGiSL Institute of Technology is fully automated and houses a vast collection of books and journals. It subscribes to numerous online journals and provides access to digital resources. Additionally, departmental libraries are available for immediate reference by staff and students.",
-    "Fitness Centre kgisl institute of technology": "The KGiSL Fitness Centre focuses on maintaining physical fitness and offers modern equipment for various exercises. It operates from early morning to late evening, providing students and staff with opportunities for physical activity.",
-    "Amenities kgisl institute of technology": "The college campus is self-sufficient, with amenities such as a cafeteria, restaurant, hospital, pharmacy, and banking facilities. It also provides 24x7 security and transportation services for students.",
-    "Physical Education kgisl institute of technology": "KGiSL Institute of Technology emphasizes physical education as an integral part of student development. The campus provides facilities for various sports and fitness activities to promote a healthy lifestyle among students.",
-    "Transport kgisl institute of technology": "The college offers transportation services for students residing outside the campus, facilitating easy commute to and from the college.",
-    "Pharmacy kgisl institute of technology": "A pharmacy located on the campus provides essential medical supplies and services to students and staff, ensuring their healthcare needs are met.",
-    "Cafeteria kgisl institute of technology": "The 24-hour cafeteria at KGiSL Institute of Technology offers a variety of food and snacks, providing students with a space for relaxation and professional interaction.",
-    "Hospital kgisl institute of technology": "The campus hospital offers medical facilities to students, ensuring prompt medical attention in case of any health issues.",
-    "Bank kgisl institute of technology": "A Canara Bank facility with ATMs is available on campus, providing banking services to students and staff.",
-    "Security kgisl institute of technology": "The college campus is equipped with 24-hour security personnel to ensure the safety and security of students and staff.",
+   "Skill Labs at kgisl institute of technology": "The Skill Labs at KGiSL Institute of Technology encompass various cutting-edge technologies such as Augmented Reality (AR), Virtual Reality (VR), and Robotic Process Automation (RPA). These labs provide students with hands-on experience and practical training in these emerging fields, preparing them for the challenges of the future.",
+    "Learning Management System at kgisl institute of technology": "KGiSL Institute of Technology utilizes Moodle, a globally recognized open-source Learning Management System (LMS), to facilitate online learning. Moodle offers a collaborative platform for both students and teachers, delivering course materials and enabling interactive learning experiences. It includes features such as discussion forums, quizzes, and assignment tracking, enhancing the overall learning journey.",
+    "Infrastructure at kgisl institute of technology": "The infrastructure at KGiSL Institute of Technology is state-of-the-art, designed to provide students with a conducive learning environment. The campus spans 11 acres and includes three blocks: Admin Block, Academic Block, and Lab Block. It features smart classrooms, well-equipped laboratories, a digital library, an auditorium, a gym, a food court, yoga facilities, and a health center. Additionally, the hostel provides comfortable accommodation with Wi-Fi connectivity.",
+    "Class Room at kgisl institute of technology": "KGiSL Institute of Technology boasts 42 classrooms and 3 seminar halls equipped with ICT facilities such as LCD projectors, Wi-Fi/LAN connectivity, and green boards. The seminar halls are utilized for department meetings, workshops, and club activities.",
+    "Laboratories at kgisl institute of technology": "The institute's teaching-learning laboratories are fully equipped with state-of-the-art facilities, meeting the norms and standards prescribed by regulatory authorities such as AICTE and the affiliating university. The laboratories cover various disciplines and are instrumental in providing practical exposure to students.",
+    "Library at kgisl institute of technology": "The central library at KGiSL Institute of Technology is fully automated and houses a vast collection of books and journals. It subscribes to numerous online journals and provides access to digital resources. Additionally, departmental libraries are available for immediate reference by staff and students.",
+    "Fitness Centre at kgisl institute of technology": "The KGiSL Fitness Centre focuses on maintaining physical fitness and offers modern equipment for various exercises. It operates from early morning to late evening, providing students and staff with opportunities for physical activity.",
+    "Amenities at  kgisl institute of technology": "The college campus is self-sufficient, with amenities such as a cafeteria, restaurant, hospital, pharmacy, and banking facilities. It also provides 24x7 security and transportation services for students.",
+    "Physical Education at kgisl institute of technology": "KGiSL Institute of Technology emphasizes physical education as an integral part of student development. The campus provides facilities for various sports and fitness activities to promote a healthy lifestyle among students.",
+    "Transport at kgisl institute of technology": "The college offers transportation services for students residing outside the campus, facilitating easy commute to and from the college.",
+    "Pharmacy  at kgisl institute of technology": "A pharmacy located on the campus provides essential medical supplies and services to students and staff, ensuring their healthcare needs are met.",
+    "Cafeteria at kgisl institute of technology": "The 24-hour cafeteria at KGiSL Institute of Technology offers a variety of food and snacks, providing students with a space for relaxation and professional interaction.",
+    "Hospital at kgisl institute of technology": "The campus hospital offers medical facilities to students, ensuring prompt medical attention in case of any health issues.",
+    "Bank  at kgisl institute of technology": "A Canara Bank facility with ATMs is available on campus, providing banking services to students and staff.",
+    "Security  at kgisl institute of technology": "The college campus is equipped with 24-hour security personnel to ensure the safety and security of students and staff.",
     
 
-    "Hostel kgisl institute of technology": "At KGiSL Institute of Technology, we prioritize providing safe, comfortable, and well-equipped hostels for both male and female students, ensuring a conducive living environment conducive to academic success and personal growth. Here's an overview of our exceptional hostel facilities:",
+    "Hostel at kgisl institute of technology": "At KGiSL Institute of Technology, we prioritize providing safe, comfortable, and well-equipped hostels for both male and female students, ensuring a conducive living environment conducive to academic success and personal growth. Here's an overview of our exceptional hostel facilities:",
 
-    "Hostel Facilities kgisl institute of technology": "Our hostel premises are equipped with round-the-clock security personnel and surveillance cameras, ensuring a safe and secure living environment for all students.",
+    "Hostel Facilities  at kgisl institute of technology": "Our hostel premises are equipped with round-the-clock security personnel and surveillance cameras, ensuring a safe and secure living environment for all students.",
 
-    "Accommodation kgisl institute of technology": "Our hostel rooms are designed to provide maximum comfort and convenience, with amenities such as comfortable beds, study desks, storage units, and adequate lighting.",
+    "Accommodation at kgisl institute of technology": "Our hostel rooms are designed to provide maximum comfort and convenience, with amenities such as comfortable beds, study desks, storage units, and adequate lighting.",
 
-    "Dining Facilities kgisl institute of technology": "The hostel mess serves nutritious and delicious meals, catering to diverse dietary preferences, while maintaining hygiene and quality standards.",
+    "Dining Facilities t kgisl institute of technology": "The hostel mess serves nutritious and delicious meals, catering to diverse dietary preferences, while maintaining hygiene and quality standards.",
 
-    "Wi-Fi Connectivity kgisl institute of technology": "High-speed Wi-Fi connectivity is available throughout the hostel, allowing students to stay connected with family and friends and access online resources.",
+    "Wi-Fi Connectivity  at kgisl institute of technology": "High-speed Wi-Fi connectivity is available throughout the hostel, allowing students to stay connected with family and friends and access online resources.",
 
     "Study and Recreational Areas": "Designated study areas and recreational spaces are provided, encouraging focused study and social interactions among students.",
 
@@ -214,66 +216,80 @@ def call_chatgpt_api(message):
     "Transport details at kgisl institute of technology": "At KGiSL Institute of Technology, we ensure seamless transportation for students from various parts of Coimbatore and beyond, prioritizing safety and punctuality. Here are the details of our college bus routes and fee structure:",
 
     
-    "Bus Routes": "Our college buses operate on various routes, covering key areas in and around Coimbatore, ensuring convenient transportation for students.",
+    "Bus Routes at kgisl institute of technology": "Our college buses operate on various routes, covering key areas in and around Coimbatore, ensuring convenient transportation for students.",
     
-    "Fee Structure": "The college bus fee structure is designed to be affordable and transparent, providing students with a cost-effective mode of transportation.",
+    "Fee Structure at kgisl institute of technology": "The college bus fee structure is designed to be affordable and transparent, providing students with a cost-effective mode of transportation.",
     
-    "Bus Facilities": "Our college buses are equipped with modern facilities, ensuring a comfortable and safe travel experience for students.",
+    "Bus Facilities at kgisl institute of technology": "Our college buses are equipped with modern facilities, ensuring a comfortable and safe travel experience for students.",
     
-    "Safety Measures": "We prioritize the safety and security of students during transportation, implementing stringent safety measures and guidelines.",
+    "Safety Measures at kgisl institute of technology": "We prioritize the safety and security of students during transportation, implementing stringent safety measures and guidelines.",
     
-    "Bus Timings": "The college bus timings are scheduled to align with the college's academic schedule, ensuring punctual arrival and departure for students.",
+    "Bus Timings at kgisl institute of technology": "The college bus timings are scheduled to align with the college's academic schedule, ensuring punctual arrival and departure for students.",
     
-    "Bus Rules": "We have established clear and comprehensive rules for college bus usage, ensuring discipline and safety among students during transportation.",
+    "Bus Rules at kgisl institute of technology": "We have established clear and comprehensive rules for college bus usage, ensuring discipline and safety among students during transportation.",
     
-    "Bus Staff": "Our college buses are managed by experienced and professional staff, ensuring a smooth and reliable transportation experience for students.",
+    "Bus Staff at kgisl institute of technology": "Our college buses are managed by experienced and professional staff, ensuring a smooth and reliable transportation experience for students.",
     
     
     "Placement details at kgisl institute of technology": "At KGiSL Institute of Technology, we are committed to providing students with exceptional placement opportunities, ensuring their successful transition from academia to industry. Here's an overview of our placement process and achievements:",
     
-    "Placement Process": "Our comprehensive placement process is designed to equip students with the necessary skills and resources to secure rewarding career opportunities.",
+    "Placement Process at kgisl institute of technology": "Our comprehensive placement process is designed to equip students with the necessary skills and resources to secure rewarding career opportunities.",
     
-    "Placement Achievements": "We have a strong track record of successful placements, with students securing positions in leading companies across diverse industries.",
+    "Placement Achievements at kgisl institute of technology": "We have a strong track record of successful placements, with students securing positions in leading companies across diverse industries.",
     
-    "Placement Training": "We offer specialized training programs to prepare students for the recruitment process, enhancing their employability and confidence.",
+    "Placement Training at kgisl institute of technology": "We offer specialized training programs to prepare students for the recruitment process, enhancing their employability and confidence.",
     
-    "Recruitment Partners": "We have established strong partnerships with leading companies, facilitating regular recruitment drives and internship opportunities for students.",
+    "Recruitment Partners at kgisl institute of technology": "We have established strong partnerships with leading companies, facilitating regular recruitment drives and internship opportunities for students.",
     
-    "Placement Support": "Our dedicated placement cell provides students with guidance and support throughout the placement process, ensuring a seamless experience.",
+    "Placement Support at kgisl institute of technology": "Our dedicated placement cell provides students with guidance and support throughout the placement process, ensuring a seamless experience.",
     
-    "Internship Opportunities": "We offer students access to valuable internship opportunities, enabling them to gain practical experience and industry exposure.",
+    "Internship Opportunities at kgisl institute of technology": "We offer students access to valuable internship opportunities, enabling them to gain practical experience and industry exposure.",
     
-    "Placement Statistics": "Our placement statistics reflect the success of our students, with a high percentage of students securing placements in top companies.",
+    "Placement Statistics at kgisl institute of technology": "Our placement statistics reflect the success of our students, with a high percentage of students securing placements in top companies.",
     
-    "Placement Highlights": "Our placement highlights showcase the diverse roles and industries in which our students have secured rewarding career opportunities.",
+    "Placement Highlights at kgisl institute of technology": "Our placement highlights showcase the diverse roles and industries in which our students have secured rewarding career opportunities.",
     
-    "Placement Testimonials": "We have received positive testimonials from both students and recruiters, reflecting the quality and impact of our placement initiatives.",
+    "Placement Testimonials at kgisl institute of technology": "We have received positive testimonials from both students and recruiters, reflecting the quality and impact of our placement initiatives.",
     
-    "Placement FAQs": "Our placement FAQs provide students with comprehensive information on the placement process, ensuring clarity and transparency.",
+    "Placement FAQs at kgisl institute of technology": "Our placement FAQs provide students with comprehensive information on the placement process, ensuring clarity and transparency.",
     
-    "Placement Contact": "For any placement-related queries, students can contact our placement cell for guidance and support.",
+    "Placement Contact at kgisl institute of technology": "For any placement-related queries, students can contact our placement cell for guidance and support.",
     
     "Alumni details at kgisl institute of technology": "At KGiSL Institute of Technology, we take pride in our vibrant alumni community, comprising successful professionals across diverse industries. Here's an overview of our alumni network and initiatives:",
     
-    "Alumni Network": "Our alumni network spans various industries and geographies, providing students with valuable connections and mentorship opportunities.",
+    "Alumni Network at kgisl institute of technology": "Our alumni network spans various industries and geographies, providing students with valuable connections and mentorship opportunities.",
     
-    "Alumni Achievements": "Our alumni have achieved significant success in their respective careers, serving as role models and mentors for current students.",
+    "Alumni Achievements at kgisl institute of technology": "Our alumni have achieved significant success in their respective careers, serving as role models and mentors for current students.",
     
-    "Alumni Initiatives": "We offer various initiatives and programs to engage and support our alumni, fostering a strong sense of community and collaboration.",
+    "Alumni Initiatives at kgisl institute of technology": "We offer various initiatives and programs to engage and support our alumni, fostering a strong sense of community and collaboration.",
     
-    "Alumni Testimonials": "We have received positive testimonials from our alumni, reflecting the transformative impact of their educational experience at our institution.",
+    "Alumni Testimonials at kgisl institute of technology": "We have received positive testimonials from our alumni, reflecting the transformative impact of their educational experience at our institution.",
     
-    "Alumni Events": "We organize regular alumni events and reunions, providing opportunities for networking, knowledge sharing, and professional development.",
+    "Alumni Events at kgisl institute of technology": "We organize regular alumni events and reunions, providing opportunities for networking, knowledge sharing, and professional development.",
     
-    "Alumni Contact": "For any alumni-related queries or collaborations, students and alumni can contact our alumni cell for support and guidance.",
+    "Alumni Contact at kgisl institute of technology": "For any alumni-related queries or collaborations, students and alumni can contact our alumni cell for support and guidance.",
     
-    "Alumni FAQs": "Our alumni FAQs provide students with comprehensive information on alumni initiatives and engagement opportunities.",
+    "Alumni FAQs at kgisl institute of technology": "Our alumni FAQs provide students with comprehensive information on alumni initiatives and engagement opportunities.",
     
-    "Alumni Registration": "Students and alumni can register with our alumni network to access exclusive benefits and stay connected with our institution and throut E-Campus.",
+    "Alumni Registration at kgisl institute of technology": "Students and alumni can register with our alumni network to access exclusive benefits and stay connected with our institution and throut E-Campus.",
+
+    
     #LABS 
-    "AIES lab": "Technical Manager-Mr. Navaneeth Malligan,Ms. Bhuvaneshwari Kanagaraj; Project Manager-Dr. Krishnapriya; Industry Mentos/PoP-MR. dinesh Tantri; Faculty Mentor-Mr.Sathish Ramanujam,Ms.Leena Bojaraj,Mr. Rahul Poopathi,Mr. Antony Pradeesh",
-    " vision of AIES lab":"Our vision for the AIES Innovation Lab is to make KITE (KGiSL Institute of Technology and Engineering) an industry-leading applied research organization that is not only aligned with current technological needs but also contributes significantly to the future of the computing industry. We aim to achieve this by fostering a learn by doing philosophy and focusing on the intersections of Artificial Intelligence and Embedded Systems.",
-    "POP'S professor of practices": "Processor of Practices (POPs) Mr. Dinesh Tantri- Lead Mentor Mr. Ramesh Gopal- Founder, Blokxlab- WEB 3.0 Mr. Raghav, Microsoft, Blokxlab - Cyber", # type: ignore
+    " People in AIES lab": "Technical Manager-Mr. Navaneeth Malligan,Ms. Bhuvaneshwari Kanagaraj; Project Manager-Dr. Krishnapriya; Industry Mentos/PoP-MR. dinesh Tantri; Faculty Mentor-Mr.Sathish Ramanujam,Ms.Leena Bojaraj,Mr. Rahul Poopathi,Mr. Antony Pradeesh",
+   
+    " Vision of AIES lab":"Our vision for the AIES Innovation Lab is to make KITE (KGiSL Institute of Technology and Engineering) an industry-leading applied research organization that is not only aligned with current technological needs but also contributes significantly to the future of the computing industry. We aim to achieve this by fostering a learn by doing philosophy and focusing on the intersections of Artificial Intelligence and Embedded Systems.",
+    " POP'S professor of practices": "Processor of Practices (POPs) Mr. Dinesh Tantri- Lead Mentor Mr. Ramesh Gopal- Founder, Blokxlab- WEB 3.0 Mr. Raghav, Microsoft, Blokxlab - Cyber", # type: ignore
+    "people in Cloud and DevOps Lab":"Cloud and DevOpsPeopleTechnical Manager - Mrs. Pavithra RagunathanProject Manager - Dr. Sankar RamIndustry Mentos/PoP - Mr.Dinesh TantriFaculty Mentor -Ms. Amrin ZameerDr. Rajesekaran SMr. Vivekanandhan VMr. Manikandan SMs. Suriya ADr.Ajitha PMs.Dhanusha CMs. Mahalakshmi MMs.Anitha EMs.Gomathi R",
+    " vision of Cloud and DevOps Lab":"The Cloud-DevOps COE will be focused on upskilling KITE faculty and graduates with the latest industry best practices as regards to DevOps. Modern websites and software apps have become a complex affair. They are powered by a chain of dependent services residing inside the cloud provider. Customers have come to expect high availability and reliability from the Apps that they use. As a result, DevOps engineers have come to play a critical role in ensuring that the deployed software continues to deliver despite intermittent failures.",
+    "people in Web 3.0 Lab ":"Web 3.0PeopleTechnical Manager - Mrs. Pavithra RagunathanProject Manager - Mrs. ThenmozhiIndustry Mentos/PoP -Mr.Dinesh TantriMr. Ramesh GopalFaculty Mentor -Mr. Jeeva Padmanaban V,Mr. Sureshkumar R,Mr. Mani deepak C,Ms.Nithya K,Ms.Yemunarane K,Mr. Boopalan S,Mr. Omprakash S,Mr. Deepan kumar S",
+    " Vision of Web 3.0 Lab":"The Web 3.0 Innovation Lab exists to drive transformative learning experiences and enable learner transformation in the Web 3.0 space. The primary goal is to equip learners with the knowledge, skills, and mindset required to understand Web 3.0 deeply and build innovative products and solutions. We believe doing this will automatically improve chances of starting up, finding employment or pursuing higher education in the Web 3.0 area.",
+    "people in Cyber Security Lab ":"Technical Manager – Mr.Joel Anandraj.E, AP/ITProject Manager - Dr.S.Vidhya, Vice Principal, KG College of Arts and Science.Industry Mentors/PoP – Mr. Raghav Ellur, Principal Security Group Manager at MicrosoftFaculty Mentor –Ms.Shirley Josephine Mary AP/IT,Ms. Krishna Kala AP/CSBS,Mr.Anbarasan R AP/IT,Ms.Nithya AP/CSE,Ms.Aruna AP/CSE",
+    "vision of Cyber Security Lab":"To attain the foremost position in the Cyber Security domain, ensuring a secure digital future through excellence in education, research, and collaborative initiatives.",
+    "Innovation Labs at kgisl institute of technology":"KGiSL Institute Of Technology  has 4 innovation labs",
+    
+    
+    
+    
     "Tech Community": {
         "Objectives": [
             "Create technical awareness among students and improve their quality through learning.",
@@ -305,10 +321,11 @@ def call_chatgpt_api(message):
                 matched_question = question
         
         if max_similarity >= match_threshold:
-            time.sleep(1.2) 
+            time.sleep(1.1) 
             return responses[matched_question]
         else:
-            messages = [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": message}]
+            messages=[{"role":"system","content":"You are a helpful assistant."}, {"role":"user","content":message}]
+
             response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
             answer = response['choices'][0]['message']['content'].replace('\n', '<br>')
             return answer
